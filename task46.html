@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4-6</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      #image-container img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      #image-container img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="image-container">
+      <img
+        id="hover-image"
+        src="./images/defaultImg.jpg"
+        alt="Default Image"
+        onmouseover="changeImageToHover()"
+        onmouseout="changeImageToDefault()"
+      />
+    </div>
+
+    <script src="./javascript/task4Javascripts.js"></script>
+  </body>
+</html>

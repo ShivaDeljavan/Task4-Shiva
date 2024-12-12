@@ -17,6 +17,8 @@ getDataAsycrounous();
 
 // ********task41 javascript end*********
 
+//-----------------------------------------------------------------
+
 // ********task42 javascript start*********
 const getDataWithPromise = (url) => {
   return new Promise((resolve, reject) => {
@@ -35,7 +37,7 @@ const getDataWithPromise = (url) => {
 
 const getAllPosts = () => {
   const statusElement = document.getElementById("status");
-  statusElement.innerText = "در حال آپدیت..."; // Show updating message
+  statusElement.innerText = "در حال آپدیت...";
 
   getDataWithPromise("https://jsonplaceholder.typicode.com/posts")
     .then((data) => {
@@ -60,7 +62,7 @@ const getAllPosts = () => {
     })
     .catch((error) => {
       console.log(error);
-      //   alert("خطا در دریافت داده‌ها: " + error);
+
       statusElement.innerText = "خطا در آپدیت.";
     });
 };
@@ -76,28 +78,97 @@ window.onload = fetchDataInterval;
 
 // ********task42 javascript end*********
 
+//-----------------------------------------------------------------
+
 // ********task43 javascript start*********
 let intervalId = null;
 
 const startRandomNumberGenerator = () => {
   if (intervalId) {
-    clearInterval(intervalId); // Clear any existing interval
+    clearInterval(intervalId);
   }
 
   intervalId = setInterval(() => {
-    const randomNumber = Math.floor(Math.random() * 10); // Generate random number between 0 and 9
+    const randomNumber = Math.floor(Math.random() * 10);
 
     switch (true) {
       case randomNumber < 5:
-        alert(`Number: ${randomNumber} - You succeeded!`);
+        alert(`عدد: ${randomNumber} - موفق شدید!`);
         break;
       case randomNumber >= 5:
-        alert(`Number: ${randomNumber} - Try again!`);
+        alert(`عدد: ${randomNumber} - دوباره تلاش کنید!`);
         break;
       default:
-        console.log("Unexpected case");
+        console.log("خطایی رخ داده");
     }
   }, 3000);
 };
 
 // ********task43 javascript end*********
+
+//-----------------------------------------------------------------
+
+// ********task44 javascript start*********
+const generateRandomArray = (size) => {
+  const randomArray = [];
+  for (let i = 0; i < size; i++) {
+    randomArray.push(Math.floor(Math.random() * 100));
+  }
+  return randomArray;
+};
+//مرتب سازی کوچک به بزرگ
+const sortDescending = (array) => {
+  return array.sort((a, b) => b - a);
+};
+
+const createAndSortArray = () => {
+  //مرتب سازی بزرگ به کوچک
+  const sortAscending = (array) => {
+    return array.sort((a, b) => a - b);
+  };
+
+  //ایجاد و چاپ آرایه اصلی رندوم
+  const randomArray = generateRandomArray(8);
+  console.log("Original Array:", randomArray);
+
+  //چاپ صعودی آرایه
+  const ascendingArray = sortAscending(randomArray.slice());
+  console.log("Sorted Ascending:", ascendingArray);
+
+  //چاپ نزولی آرایه
+  const descendingArray = sortDescending(randomArray.slice());
+  console.log("Sorted Descending:", descendingArray);
+};
+
+// ********task44 javascript end*********
+
+//-----------------------------------------------------------------
+
+// ********task45 javascript start*********
+const multiplythree = () => {
+  const originalArray = [1, 2, 3, 4, 5, 6];
+  console.log("Original Array:", originalArray);
+
+  const multipliedArray = originalArray.map((num) => num * 3);
+  console.log("Multiplied Array:", multipliedArray);
+};
+// ********task45 javascript end*********
+
+//-----------------------------------------------------------------
+
+// ********task46 javascript start*********
+
+const defaultImage = "./images/defaultImg.jpg";
+const hoverImage = "./images/hoveredImg3.jpg";
+
+function changeImageToHover() {
+  const imageElement = document.getElementById("hover-image");
+  imageElement.src = hoverImage;
+}
+
+function changeImageToDefault() {
+  const imageElement = document.getElementById("hover-image");
+  imageElement.src = defaultImage;
+}
+
+// ********task46 javascript end*********
